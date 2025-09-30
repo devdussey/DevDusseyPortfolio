@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { supabase } from '../lib/supabase'
 import './Setup.css'
 
 export default function Setup() {
@@ -18,28 +17,24 @@ export default function Setup() {
     setError(null)
 
     try {
-      const { data: authData, error: signUpError } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: window.location.origin,
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+      const response = await fetch(`${supabaseUrl}/functions/v1/create-admin`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          email,
+          password,
+          full_name: fullName,
+        }),
       })
 
-      if (signUpError) throw signUpError
-      if (!authData.user) throw new Error('No user returned from signup')
+      const data = await response.json()
 
-      const { error: adminError } = await supabase
-        .from('admin_users')
-        .insert({
-          auth_user_id: authData.user.id,
-          email,
-          full_name: fullName,
-          role: 'super_admin',
-          is_active: true,
-        })
-
-      if (adminError) throw adminError
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to create admin user')
+      }
 
       setSuccess(true)
       setTimeout(() => {
