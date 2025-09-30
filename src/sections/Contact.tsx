@@ -154,7 +154,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               rows={6}
-              placeholder="Tell us briefly about your idea (ex. A Website to be created and hosted for my sales company"
+              placeholder="Tell us briefly about your idea (ex. A Website to be created and hosted for my sales company)"
             />
           </div>
 
