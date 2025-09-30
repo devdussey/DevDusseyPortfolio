@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Hero.css'
 
 export default function Hero() {
@@ -11,8 +12,8 @@ export default function Hero() {
             Creating beautiful, functional websites and applications
           </p>
           <div className="hero-cta">
-            <a href="#contact" className="btn-primary">Get In Touch</a>
-            <a href="#portfolio" className="btn-secondary">View Work</a>
+            <Link to="/contact" className="btn-primary">Get In Touch</Link>
+            <Link to="/portfolio" className="btn-secondary">View Work</Link>
           </div>
         </div>
       </div>

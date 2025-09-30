@@ -24,22 +24,16 @@ function AppContent() {
     window.scrollTo(0, 0)
   }, [location])
 
-  const HomePage = () => (
-    <>
-      <Hero />
-      <About />
-      <Services />
-      <Portfolio />
-      <CurrentProjects />
-      <Contact />
-    </>
-  )
-
   return (
     <div className="app">
       {!isAdminRoute && <Navigation />}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Hero />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/projects" element={<CurrentProjects />} />
+        <Route path="/contact" element={<Contact />} />
 
         <Route path="/setup" element={<Setup />} />
         <Route path="/admin/login" element={<Login />} />
