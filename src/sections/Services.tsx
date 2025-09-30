@@ -4,7 +4,6 @@ export default function Services() {
   return (
     <section className="services" id="services">
       <div className="services-container">
-        <img src="/DevDusseyServices.gif" alt="DevDussey Services" className="services-gif" />
         <h2>Services</h2>
         <div className="services-grid">
           <div className="service-card">

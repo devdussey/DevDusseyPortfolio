@@ -52,7 +52,6 @@ export default function Setup() {
     <div className="setup-container">
       <div className="setup-card">
         <div className="setup-header">
-          <img src="/DevDusseyCropped.png" alt="DevDussey" className="setup-logo" />
           <h1>First Time Setup</h1>
           <p>Create your super admin account</p>
         </div>

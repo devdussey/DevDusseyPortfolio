@@ -23,8 +23,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     <div className="admin-layout">
       <aside className="admin-sidebar">
         <div className="sidebar-header">
-          <img src="/DevDusseyCropped.png" alt="DevDussey" className="sidebar-logo" />
-          <h2>Admin Panel</h2>
+          <h2>DevDussey Admin</h2>
         </div>
 
         <nav className="sidebar-nav">

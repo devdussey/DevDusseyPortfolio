@@ -3,16 +3,13 @@ import './About.css'
 
 const About = () => {
   return (
-    <div className="about-section section">
+    <section className="about-section section" id="about">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="about-logo">
-          <img src="/DevDusseyAbout.gif" alt="DevDussey About" />
-        </div>
         <div className="about-content">
           <div className="about-text">
             <p>
@@ -73,12 +70,9 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="about-image">
-            <img src="/DevDusseyCropped.png" alt="DevDussey Logo" />
-          </div>
         </div>
       </motion.div>
-    </div>
+    </section>
   )
 }
 

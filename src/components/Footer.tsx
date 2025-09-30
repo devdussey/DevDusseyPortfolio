@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <img src="/DevDusseyCropped.png" alt="DevDussey" className="footer-logo" />
+          <h2 style={{color: '#00d4ff', fontSize: '24px', margin: '0 0 8px 0'}}>DevDussey</h2>
           <p className="footer-tagline">Crafting Digital Excellence</p>
         </div>
 

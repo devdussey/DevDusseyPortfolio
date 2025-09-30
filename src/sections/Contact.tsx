@@ -40,11 +40,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="contact-section section">
-      <div className="contact-logo">
-        <img src="/DevDusseyContact.gif" alt="DevDussey Contact" />
-      </div>
-
+    <section className="contact-section section" id="contact">
       <div className="contact-container">
         <motion.div
           className="contact-info"
@@ -171,7 +167,7 @@ const Contact = () => {
           )}
         </motion.form>
       </div>
-    </div>
+    </section>
   )
 }
 

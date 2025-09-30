@@ -5,8 +5,8 @@ export default function Navigation() {
   return (
     <nav className="navigation">
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
-          <img src="/NewLogo.png" alt="DevDussey" />
+        <Link to="/" className="nav-logo" style={{fontSize: '24px', fontWeight: 'bold', color: '#00d4ff'}}>
+          DevDussey
         </Link>
         <ul className="nav-menu">
           <li><a href="#home">Home</a></li>
