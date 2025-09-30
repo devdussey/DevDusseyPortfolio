@@ -10,6 +10,9 @@ const About = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
+        <div className="about-logo">
+          <img src="/DevDusseyAbout.gif" alt="DevDussey About" />
+        </div>
         <div className="about-content">
           <div className="about-text">
             <p>

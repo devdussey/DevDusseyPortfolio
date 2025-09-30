@@ -35,6 +35,7 @@ export default function Login() {
     <div className="login-page">
       <div className="login-container">
         <div className="login-header">
+          <img src="/NewLogo.png" alt="DevDussey" className="login-logo" style={{height: '60px', marginBottom: '16px'}} />
           <h1>Admin Panel</h1>
           <p>Sign in to manage your portfolio</p>
         </div>

@@ -41,6 +41,10 @@ const Contact = () => {
 
   return (
     <section className="contact-section section" id="contact">
+      <div className="contact-logo">
+        <img src="/DevDusseyAbout.gif" alt="DevDussey Contact" />
+      </div>
+
       <div className="contact-container">
         <motion.div
           className="contact-info"
