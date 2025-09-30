@@ -1,6 +1,5 @@
 import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
-import { supabase } from '../lib/supabase'
 import './Contact.css'
 
 const Contact = () => {
@@ -15,21 +14,11 @@ const Contact = () => {
     e.preventDefault()
     setStatus('sending')
 
-    try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([formData])
-
-      if (error) throw error
-
+    setTimeout(() => {
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
       setTimeout(() => setStatus('idle'), 3000)
-    } catch (error) {
-      console.error('Error sending message:', error)
-      setStatus('error')
-      setTimeout(() => setStatus('idle'), 3000)
-    }
+    }, 1000)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
