@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect } from 'react'
 import { AuthProvider } from './contexts/AuthContext'
 import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
 import Hero from './sections/Hero'
 import About from './sections/About'
@@ -75,6 +76,7 @@ function AppContent() {
           }
         />
       </Routes>
+      {!isAdminRoute && <Footer />}
     </div>
   )
 }
