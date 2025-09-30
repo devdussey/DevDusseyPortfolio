@@ -10,6 +10,7 @@ import Services from './sections/Services'
 import Portfolio from './sections/Portfolio'
 import CurrentProjects from './sections/CurrentProjects'
 import Contact from './sections/Contact'
+import Setup from './pages/Setup'
 import Login from './pages/admin/Login'
 import Dashboard from './pages/admin/Dashboard'
 import Users from './pages/admin/Users'
@@ -34,6 +35,7 @@ function AppContent() {
         <Route path="/current-projects" element={<CurrentProjects />} />
         <Route path="/contact" element={<Contact />} />
 
+        <Route path="/setup" element={<Setup />} />
         <Route path="/admin/login" element={<Login />} />
         <Route
           path="/admin/dashboard"
