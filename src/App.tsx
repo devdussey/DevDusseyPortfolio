@@ -20,14 +20,16 @@ function AppContent() {
   return (
     <div className="app">
       <Navigation />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/projects" element={<CurrentProjects />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/projects" element={<CurrentProjects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   )

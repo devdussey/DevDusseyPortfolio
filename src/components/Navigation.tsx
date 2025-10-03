@@ -1,20 +1,47 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './Navigation.css'
 
+const navLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Portfolio', to: '/portfolio' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Contact', to: '/contact' },
+]
+
 export default function Navigation() {
+  const location = useLocation()
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 12)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <nav className="navigation">
+    <nav className={`navigation${isScrolled ? ' scrolled' : ''}`}>
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
-          <img src="/NewLogo.png" alt="DevDussey" style={{height: '40px'}} />
+        <Link to="/" className="nav-logo" aria-label="DevDussey home">
+          <img src="/DevDusseyLogo2.svg" alt="DevDussey" />
         </Link>
         <ul className="nav-menu">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/services">Services</Link></li>
-          <li><Link to="/portfolio">Portfolio</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.to
+            return (
+              <li key={link.to}>
+                <Link className={isActive ? 'active' : ''} to={link.to}>
+                  {link.label}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </nav>

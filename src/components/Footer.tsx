@@ -1,55 +1,65 @@
 import { Link } from 'react-router-dom'
 import './Footer.css'
 
+const navLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Portfolio', to: '/portfolio' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Contact', to: '/contact' },
+]
+
+const socialLinks = [
+  { label: 'Discord', href: 'https://discord.com' },
+  { label: 'GitHub', href: 'https://github.com/devdussey' },
+  { label: 'Facebook', href: 'https://facebook.com' },
+]
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-section">
-          <img src="/NewLogo.png" alt="DevDussey" className="footer-logo" style={{height: '50px'}} />
-          <p className="footer-tagline">Crafting Digital Excellence</p>
-        </div>
+      <div className="footer-shell">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <img src="/DevDusseyLogo2.svg" alt="DevDussey" className="footer-logo" />
+            <p className="footer-tagline">Crafting digital experiences that feel premium and perform flawlessly.</p>
+          </div>
 
-        <div className="footer-section">
-          <h3>Quick Links</h3>
-          <nav className="footer-links">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/portfolio">Portfolio</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/contact">Contact</Link>
-          </nav>
-        </div>
+          <div className="footer-links">
+            <h3>Explore</h3>
+            <nav>
+              {navLinks.map((link) => (
+                <Link key={link.to} to={link.to}>
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-        <div className="footer-section">
-          <h3>Connect</h3>
-          <div className="footer-social">
-            <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
-              Discord
-            </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              Facebook
-            </a>
+          <div className="footer-links">
+            <h3>Connect</h3>
+            <div className="footer-social">
+              {socialLinks.map((link) => (
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="footer-links">
+            <h3>Admin</h3>
+            <Link to="/admin/login" className="admin-login-btn">
+              Admin Login
+            </Link>
           </div>
         </div>
-
-        <div className="footer-section">
-          <h3>Admin</h3>
-          <Link to="/admin/login" className="admin-login-btn">
-            <span className="admin-icon">🔐</span>
-            Admin Login
-          </Link>
+        <div className="footer-bottom">
+          <p>&copy; {currentYear} DevDussey. All rights reserved.</p>
         </div>
-      </div>
-
-      <div className="footer-bottom">
-        <p>&copy; {currentYear} DevDussey. All rights reserved.</p>
       </div>
     </footer>
   )
