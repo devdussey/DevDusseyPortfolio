@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(netlify deploy:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd .gitignore and remove node_modules from version control\n\n- Create proper .gitignore for Node.js/Vite project\n- Remove node_modules from git tracking (should never be committed)\n- Clean up .env and eslint.config.js files\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Read(//c/Users/Main User/Downloads/**)",
+      "Bash(copy:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

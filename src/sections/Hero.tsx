@@ -22,12 +22,14 @@ export default function Hero() {
       <div className="section-shell">
         <div className="hero-inner section-inner">
           <div className="hero-media" aria-hidden="true">
-            <img src="/DevDusseyHome.gif" alt="DevDussey hero showcase" loading="lazy" />
+            <div className="hero-orb-container">
+              <img src="/BlueHero.png" alt="DevDussey hero orb" className="hero-orb" loading="lazy" />
+            </div>
           </div>
 
           <header className="hero-header">
+            <h1>c:\DevDussey{'>'}<span className="cursor">_</span></h1>
             <p className="hero-kicker">Design / Development / Delivery</p>
-            <h1>Premium digital experiences with measurable impact.</h1>
             <p className="hero-subtitle">
               DevDussey partners with brands to craft modern products that feel artisanal, move fast, and stay resilient under scale.
             </p>
