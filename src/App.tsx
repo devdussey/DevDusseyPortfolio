@@ -8,6 +8,8 @@ import Services from './sections/Services'
 import Portfolio from './sections/Portfolio'
 import CurrentProjects from './sections/CurrentProjects'
 import Contact from './sections/Contact'
+import Pricing from './sections/Pricing'
+import AdminDashboard from './admin/AdminDashboard'
 import './App.css'
 
 function AppContent() {
@@ -27,7 +29,9 @@ function AppContent() {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/projects" element={<CurrentProjects />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin/login" element={<AdminDashboard />} />
         </Routes>
       </main>
       <Footer />

@@ -2,22 +2,28 @@ import './Portfolio.css'
 
 const projects = [
   {
-    title: 'Dusscord',
-    description: 'Community-first messaging with custom moderation workflows and playful branding.',
-    image: '/DusscordBlackBanner.png',
-    tags: ['Brand Identity', 'Realtime Chat', 'Design System'],
+    title: 'E-commerce Platform',
+    description: 'Full-featured online store with product management, shopping cart, secure checkout, and order tracking. Built for scalability and conversion.',
+    image: '/portfolio-ecommerce.jpg',
+    tags: ['Next.js', 'Stripe', 'Tailwind CSS', 'PostgreSQL'],
   },
   {
-    title: 'Gawels Green',
-    description: 'Sustainable commerce built with a storytelling-driven product catalogue.',
-    image: '/GawelsGreenBanner.png',
-    tags: ['E-commerce', 'Animations', 'Conversion Optimization'],
+    title: 'SaaS Dashboard',
+    description: 'Modern admin panel with analytics, user management, and real-time data visualization. Clean UI with powerful features.',
+    image: '/portfolio-saas.jpg',
+    tags: ['React', 'TypeScript', 'Chart.js', 'REST API'],
   },
   {
-    title: 'Landing Suite',
-    description: 'High-performing landing page templates tuned for rapid marketing experiments.',
-    image: '/LAndingPAge copy.png',
-    tags: ['Marketing', 'UI Toolkit', 'A/B Testing'],
+    title: 'Service Company Template',
+    description: 'Professional business website with service showcase, testimonials, contact forms, and SEO optimization. Perfect for agencies.',
+    image: '/portfolio-service.jpg',
+    tags: ['React', 'Framer Motion', 'Responsive', 'SEO Ready'],
+  },
+  {
+    title: 'Community Platform',
+    description: 'Interactive community hub with user profiles, messaging, forums, and real-time notifications. Engaging and scalable.',
+    image: '/portfolio-community.jpg',
+    tags: ['React', 'Supabase', 'Real-time', 'Auth'],
   },
 ]
 
@@ -26,12 +32,8 @@ export default function Portfolio() {
     <section className="portfolio-section" id="portfolio">
       <div className="section-shell">
         <div className="portfolio-inner section-inner">
-          <div className="portfolio-media" aria-hidden="true">
-            <img src="/DevDusseyPortfolio.gif" alt="DevDussey portfolio" loading="lazy" />
-          </div>
-
           <header className="portfolio-header">
-            <h2>Selected Work</h2>
+            <h2>c:\DevDussey\Portfolio{'>'}<span className="cursor">_</span></h2>
             <p>
               A snapshot of digital products built to elevate brands and deliver measurable results. Each engagement blends craft, motion, and dependable engineering.
             </p>

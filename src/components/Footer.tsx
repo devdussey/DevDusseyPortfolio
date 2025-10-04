@@ -14,6 +14,7 @@ const socialLinks = [
   { label: 'Discord', href: 'https://discord.com' },
   { label: 'GitHub', href: 'https://github.com/devdussey' },
   { label: 'Facebook', href: 'https://facebook.com' },
+  { label: 'Shopify', href: 'https://shopify.com' },
 ]
 
 export default function Footer() {
@@ -23,11 +24,6 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-shell">
         <div className="footer-grid">
-          <div className="footer-brand">
-            <img src="/DevDusseyLogo2.svg" alt="DevDussey" className="footer-logo" />
-            <p className="footer-tagline">Crafting digital experiences that feel premium and perform flawlessly.</p>
-          </div>
-
           <div className="footer-links">
             <h3>Explore</h3>
             <nav>
@@ -49,16 +45,13 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
-          <div className="footer-links">
-            <h3>Admin</h3>
-            <Link to="/admin/login" className="admin-login-btn">
-              Admin Login
-            </Link>
-          </div>
         </div>
         <div className="footer-bottom">
+          <img src="/Devdussey.png" alt="DevDussey" className="footer-bottom-logo" />
           <p>&copy; {currentYear} DevDussey. All rights reserved.</p>
+          <Link to="/admin/login" className="admin-login-btn">
+            Admin Login
+          </Link>
         </div>
       </div>
     </footer>

@@ -28,20 +28,6 @@
   align-items: center;
 }
 
-.services-media {
-  width: min(480px, 85%);
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(120, 178, 230, 0.25);
-  box-shadow:
-    0 26px 60px rgba(7, 15, 24, 0.5),
-    0 0 45px rgba(120, 178, 230, 0.18);
-}
-
-.services-media img {
-  width: 100%;
-  display: block;
-}
 
 .services-header {
   max-width: 760px;
@@ -51,8 +37,24 @@
 }
 
 .services-header h2 {
-  font-size: clamp(2.2rem, 4.5vw, 2.8rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0px 0px 5px #2196f3, 0px 0px 10px #2196f3, 0px 0px 10px #2196f3,
+    0px 0px 20px #2196f3;
+}
+
+.services-header h2 .cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
 }
 
 .services-header p {
@@ -61,70 +63,195 @@
   color: rgba(240, 245, 255, 0.75);
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+.service-carousel {
   width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  position: relative;
 }
 
-.service-card {
+.carousel-arrow {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.15) 0%, rgba(79, 195, 247, 0.1) 100%);
+  border: 1.5px solid rgba(100, 181, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.carousel-arrow svg {
+  width: 24px;
+  height: 24px;
+  color: rgba(100, 181, 246, 0.9);
+}
+
+.carousel-arrow:hover {
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.25) 0%, rgba(79, 195, 247, 0.2) 100%);
+  border-color: rgba(100, 181, 246, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(100, 181, 246, 0.3);
+}
+
+.carousel-content {
+  flex: 1;
+  display: flex;
+  gap: 32px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(120, 178, 230, 0.2);
   border-radius: 20px;
-  padding: 32px 28px;
-  text-align: left;
-  box-shadow: 0 16px 40px rgba(7, 15, 24, 0.32);
+  overflow: hidden;
   backdrop-filter: blur(12px);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.service-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(120, 178, 230, 0.45);
-  box-shadow: 0 24px 60px rgba(7, 15, 24, 0.45);
+.carousel-image {
+  flex: 1;
+  position: relative;
+  min-height: 400px;
+  background: linear-gradient(135deg, #1a2332 0%, #0f1620 100%);
 }
 
-.service-card h3 {
-  font-size: 20px;
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(9, 20, 33, 0.8) 100%);
+}
+
+.carousel-info {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.carousel-info h3 {
+  font-size: 28px;
   color: var(--accent-primary);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .service-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(240, 245, 255, 0.75);
+  margin-bottom: 24px;
+}
+
+.carousel-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.carousel-info li {
+  position: relative;
+  padding-left: 24px;
   font-size: 15px;
   line-height: 1.6;
   color: rgba(240, 245, 255, 0.7);
-  margin-bottom: 18px;
 }
 
-.service-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.service-card li {
-  position: relative;
-  padding-left: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: rgba(240, 245, 255, 0.68);
-}
-
-.service-card li::before {
+.carousel-info li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: linear-gradient(135deg, #78b2e6, #4a7ba7);
-  box-shadow: 0 0 10px rgba(120, 178, 230, 0.6);
+  box-shadow: 0 0 12px rgba(120, 178, 230, 0.7);
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(100, 181, 246, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: rgba(100, 181, 246, 0.9);
+  box-shadow: 0 0 12px rgba(100, 181, 246, 0.6);
+  width: 32px;
+  border-radius: 5px;
+}
+
+.find-out-more-btn {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.15) 0%, rgba(79, 195, 247, 0.1) 100%);
+  backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(100, 181, 246, 0.4);
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.find-out-more-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.3) 0%, rgba(79, 195, 247, 0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.find-out-more-btn:hover {
+  transform: translateY(-3px);
+  border-color: rgba(100, 181, 246, 0.6);
+  box-shadow: 0 12px 40px rgba(100, 181, 246, 0.3), 0 0 0 3px rgba(100, 181, 246, 0.1);
+}
+
+.find-out-more-btn:hover::before {
+  opacity: 1;
+}
+
+.find-out-more-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.find-out-more-btn:hover svg {
+  transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
@@ -137,8 +264,21 @@
     font-size: 16px;
   }
 
-  .service-card {
-    padding: 28px 24px;
+  .carousel-content {
+    flex-direction: column;
+  }
+
+  .carousel-image {
+    min-height: 250px;
+  }
+
+  .carousel-info {
+    padding: 24px;
+  }
+
+  .carousel-arrow {
+    width: 48px;
+    height: 48px;
   }
 }
 
@@ -148,7 +288,21 @@
     padding-bottom: 80px;
   }
 
-  .services-grid {
-    gap: 20px;
+  .service-carousel {
+    gap: 16px;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel-info h3 {
+    font-size: 22px;
   }
 }

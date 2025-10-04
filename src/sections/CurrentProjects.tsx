@@ -2,25 +2,16 @@ import './CurrentProjects.css'
 
 const activeProjects = [
   {
-    name: 'LaunchPad OS',
-    summary: 'Operations dashboard giving founders a single source of truth for KPIs, forecasts, and stakeholder updates.',
-    status: 'In build',
-    eta: 'Beta ships November 2025',
-    highlights: ['Realtime financial modeling', 'Role-based access with audit trails', 'AI assisted weekly briefs'],
-  },
-  {
-    name: 'Glacier Commerce',
-    summary: 'Composable storefront framework for premium outdoor retailers focused on story-driven shopping.',
-    status: 'Discovery',
-    eta: 'Design sprint December 2025',
-    highlights: ['Headless commerce stack', 'Personalized product storytelling', 'Integrated loyalty experiences'],
-  },
-  {
-    name: 'Signal Team',
-    summary: 'Communication toolkit for remote teams combining async updates with mindful meeting cadences.',
-    status: 'Prototype',
-    eta: 'Pilot cohort January 2026',
-    highlights: ['Dynamic agenda builder', 'Templated retros & check-ins', 'Usage analytics & sentiment'],
+    name: 'AI-Driven Anti-Virus Software',
+    summary: 'Next-generation threat detection powered by machine learning, delivering enterprise-grade protection with a lightweight, clean interface.',
+    status: 'Early Development',
+    eta: 'Alpha testing Q2 2026',
+    highlights: [
+      'Real-time behavioral analysis detecting zero-day threats before signature updates',
+      'Predictive threat modeling using neural networks trained on global attack patterns',
+      'Autonomous quarantine and remediation with minimal user intervention',
+      'Resource-efficient scanning that adapts to system load and usage patterns'
+    ],
   },
 ]
 
@@ -29,15 +20,8 @@ export default function CurrentProjects() {
     <section className="projects-section" id="projects">
       <div className="section-shell">
         <div className="projects-inner section-inner">
-          <div className="projects-media" aria-hidden="true">
-            <img src="/DevDusseyProjects.gif" alt="DevDussey projects" loading="lazy" />
-          </div>
-
           <header className="projects-header">
-            <h2>Active Builds & Experiments</h2>
-            <p>
-              A look at what is currently in motion. Each project pairs strategy sessions, product design, and engineering execution to keep momentum high.
-            </p>
+            <h2>c:\DevDussey\Projects{'>'}<span className="cursor">_</span></h2>
           </header>
 
           <div className="projects-grid">

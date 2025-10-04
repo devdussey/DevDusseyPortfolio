@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
 import './About.css'
 
 const story = [
@@ -7,56 +8,68 @@ const story = [
   "From startups searching for product-market fit to established teams scaling platforms, DevDussey becomes the partner who can translate vision into production-ready software."
 ]
 
-const skills = [
-  {
-    title: 'Interface Engineering',
-    description: 'React, Next.js, TypeScript, motion design',
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 6h16" />
-        <path d="M4 12h16" />
-        <path d="M4 18h16" />
-        <circle cx="8" cy="6" r="1.5" />
-        <circle cx="8" cy="12" r="1.5" />
-        <circle cx="8" cy="18" r="1.5" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Systems & APIs',
-    description: 'Node.js, Supabase, PostgreSQL, edge deployments',
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 2L3 7l9 5 9-5-9-5z" />
-        <path d="M3 12l9 5 9-5" />
-        <path d="M3 17l9 5 9-5" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Product Design',
-    description: 'Design systems, accessibility, user testing',
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 4h16v16H4z" />
-        <path d="M4 10h16" />
-        <path d="M10 4v16" />
-      </svg>
-    ),
-  },
-  {
-    title: 'DevOps & QA',
-    description: 'CI/CD, monitoring, Playwright and Cypress audits',
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 7v5l3 3" />
-      </svg>
-    ),
-  },
-]
+const commands: Record<string, string> = {
+  help: `Available commands:
+  • whoami        - Learn about DevDussey
+  • skills        - View technical expertise
+  • projects      - See portfolio highlights
+  • contact       - Get in touch
+  • clear         - Clear terminal`,
+  whoami: `DevDussey
+Full-stack developer specializing in modern web applications.
+Building scalable solutions with React, TypeScript, and Node.js.
+Based on passion for clean code and great UX.`,
+  skills: `Technical Stack:
+  Frontend: React, Next.js, TypeScript, Framer Motion
+  Backend: Node.js, Supabase, PostgreSQL
+  DevOps: CI/CD, Docker, Netlify, Vercel
+  Design: Figma, Adobe Creative Suite`,
+  projects: `Featured Work:
+  • E-commerce Platform - Full-stack Next.js application
+  • Portfolio Sites - Custom React builds for clients
+  • API Services - RESTful backends with Node.js
+
+  Visit /portfolio to see more!`,
+  contact: `Let's Connect:
+  📧 Email: contact@devdussey.com
+  💼 GitHub: github.com/devdussey
+  🔗 LinkedIn: linkedin.com/in/devdussey
+
+  Or visit /contact page to send a message!`,
+}
 
 export default function About() {
+  const [input, setInput] = useState('')
+  const [history, setHistory] = useState<Array<{ type: 'input' | 'output'; content: string }>>([
+    { type: 'output', content: 'Welcome to DevDussey Terminal v1.0.0' },
+    { type: 'output', content: 'Type "help" to see available commands.\n' },
+  ])
+  const terminalEndRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [history])
+
+  const handleCommand = (cmd: string) => {
+    const trimmedCmd = cmd.trim().toLowerCase()
+
+    if (trimmedCmd === 'clear') {
+      setHistory([])
+      return
+    }
+
+    const output = commands[trimmedCmd] || `Command not found: ${cmd}\nType "help" for available commands.`
+
+    setHistory([...history, { type: 'input', content: cmd }, { type: 'output', content: output }])
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (input.trim()) {
+      handleCommand(input)
+      setInput('')
+    }
+  }
   return (
     <section className="about-section" id="about">
       <div className="section-shell">
@@ -67,26 +80,48 @@ export default function About() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="about-media" aria-hidden="true">
-            <img src="/DevDusseyAbout.gif" alt="DevDussey about" loading="lazy" />
-          </div>
-
           <div className="about-content">
-            <h2>About DevDussey</h2>
+            <h2>c:\DevDussey\About{'>'}<span className="cursor">_</span></h2>
             <div className="about-text">
               {story.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
 
-            <div className="skills-grid">
-              {skills.map((skill) => (
-                <article key={skill.title} className="skill-card">
-                  <div className="skill-icon">{skill.icon}</div>
-                  <h3>{skill.title}</h3>
-                  <p>{skill.description}</p>
-                </article>
-              ))}
+            <div className="terminal-container">
+              <div className="terminal-header">
+                <div className="terminal-controls">
+                  <span className="control-dot red"></span>
+                  <span className="control-dot yellow"></span>
+                  <span className="control-dot green"></span>
+                </div>
+                <div className="terminal-title">devdussey@terminal ~ %</div>
+              </div>
+              <div className="terminal-body">
+                {history.map((entry, index) => (
+                  <div key={index} className={`terminal-line ${entry.type}`}>
+                    {entry.type === 'input' ? (
+                      <div>
+                        <span className="terminal-prompt">$</span> {entry.content}
+                      </div>
+                    ) : (
+                      <pre>{entry.content}</pre>
+                    )}
+                  </div>
+                ))}
+                <form onSubmit={handleSubmit} className="terminal-input-line">
+                  <span className="terminal-prompt">$</span>
+                  <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    className="terminal-input"
+                    placeholder="Type 'help' for commands..."
+                    autoFocus
+                  />
+                </form>
+                <div ref={terminalEndRef} />
+              </div>
             </div>
           </div>
         </motion.div>

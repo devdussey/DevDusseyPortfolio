@@ -32,10 +32,6 @@ export default function Contact() {
     <section className="contact-section" id="contact">
       <div className="section-shell">
         <div className="contact-inner section-inner">
-          <div className="contact-media" aria-hidden="true">
-            <img src="/DevDusseyContact.gif" alt="DevDussey contact" loading="lazy" />
-          </div>
-
           <motion.div
             className="contact-intro"
             initial={{ opacity: 0, y: 40 }}
@@ -43,7 +39,7 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Let’s plan your next launch</h2>
+            <h2>c:\DevDussey\Contact{'>'}<span className="cursor">_</span></h2>
             <p>
               Share a few details about your idea, and we will map the path from concept to shipped product.
               Expect a thoughtful response within one business day.
