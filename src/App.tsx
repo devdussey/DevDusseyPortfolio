@@ -9,6 +9,7 @@ import Portfolio from './sections/Portfolio'
 import CurrentProjects from './sections/CurrentProjects'
 import Contact from './sections/Contact'
 import Pricing from './sections/Pricing'
+import AdminLogin from './admin/AdminLogin'
 import AdminDashboard from './admin/AdminDashboard'
 import './App.css'
 
@@ -31,7 +32,8 @@ function AppContent() {
           <Route path="/projects" element={<CurrentProjects />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin/login" element={<AdminDashboard />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Routes>
       </main>
       <Footer />

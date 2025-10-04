@@ -15,7 +15,8 @@
       "Bash(do cp Orb.png $i.jpg)",
       "Bash(echo:*)",
       "Bash(done)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nMajor portfolio redesign and feature enhancements\n\nNavigation & Layout Updates:\n- Restructured navbar: logo left, menu center, datetime right\n- Reordered menu: About-Services-Pricing-Portfolio-Projects-Contact\n- Removed top section padding for seamless nav integration\n- Added DevDussey.png logo throughout site\n- Replaced hero orb with OrbBlue.png\n\nTerminal-Style Headers:\n- Applied c:\\DevDussey\\[Section]>_ pattern across all sections\n- Added blinking cursor animation with blue glow\n- Unified design language throughout portfolio\n\nContent Updates:\n- Hero: New 4-card feature grid (Design/Build/Deploy/Maintain)\n- About: Interactive terminal with command system\n- Services: Photo carousel with 6 services including Cloud Texting & SEO\n- Portfolio: 4 professional project showcases\n- Projects: AI-Driven Anti-Virus Software featured\n- Pricing: Interactive quote builder with add-ons\n\nNew Features:\n- Admin dashboard with photo manager and form submissions\n- Interactive pricing calculator with service selection\n- Cloud Communications as a Service option\n- Mobile-optimized responsive design\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []

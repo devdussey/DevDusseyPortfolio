@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './AdminDashboard.css'
 
 type TabType = 'photos' | 'forms' | 'settings'
@@ -31,13 +32,30 @@ const imageCategories = [
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState<TabType>('photos')
   const [selectedCategory, setSelectedCategory] = useState(imageCategories[0].id)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // Check if user is authenticated
+    const isAuth = sessionStorage.getItem('adminAuth')
+    if (!isAuth) {
+      navigate('/admin/login')
+    }
+  }, [navigate])
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('adminAuth')
+    navigate('/admin/login')
+  }
 
   return (
     <div className="admin-dashboard">
       <div className="admin-container">
         <header className="admin-header">
-          <h1>c:\DevDussey\Admin{'>'}<span className="cursor">_</span></h1>
-          <p>Manage your portfolio content and view submissions</p>
+          <div>
+            <h1>c:\DevDussey\Admin{'>'}<span className="cursor">_</span></h1>
+            <p>Manage your portfolio content and view submissions</p>
+          </div>
+          <button onClick={handleLogout} className="logout-btn">Logout</button>
         </header>
 
         <div className="admin-tabs">
